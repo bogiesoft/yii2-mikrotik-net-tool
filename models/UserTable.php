@@ -5,9 +5,17 @@ use yii\db\ActiveRecord;
 use yii\web\IndentityInterface;
 
 class UserTable extend ActiveRecord implements IndentityInterface {
+
 	public static function tableName()
 	{
 		return 'user';
+	}
+
+	public function rules()
+	{
+		return [
+
+		];
 	}
 
 
@@ -23,12 +31,12 @@ class UserTable extend ActiveRecord implements IndentityInterface {
 	public function getId()
 	{         return $this->id;
 	}
-	
+
 	public function getAuthKey()
 	{
 		return $this->authKey;
 	}
-	
+
 	public function validateAuthKey($authKey)
 	{
 		return $this->authKey === $authKey;
