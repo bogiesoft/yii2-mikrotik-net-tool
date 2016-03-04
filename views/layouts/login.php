@@ -22,10 +22,14 @@ AppAsset::register($this);
         <?php $this->head() ?>
         <style type="text/css">
             body{
-                background: #298EEA;
+                 background: url("img/login-bg.png") no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
             }
             #login-wrap{
-                margin-top: 60px;
+                margin-top: 70px;
             }
         </style>
     </head>

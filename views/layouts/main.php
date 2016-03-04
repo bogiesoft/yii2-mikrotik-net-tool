@@ -37,7 +37,10 @@ AppAsset::register($this);
                 echo Nav::widget([
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
-                        ['label' => 'Router', 'url' => ['/master/router']],
+                        \Yii::$app->user->identity->privileges == 0 ? 
+                        ['label' => 'Router', 'url' => ['/master/router']] : '',
+                        \Yii::$app->user->identity->privileges == 0 ? 
+                        ['label' => 'User', 'url' => ['/master/user']] : '',
                         !Yii::$app->user->isGuest ?
                                 [
                             'label' => 'Logout',

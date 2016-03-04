@@ -20,6 +20,9 @@ class MasterController extends Controller {
                         'actions' => ['router', 'router-create', 'router-update', 'router-delete', 'logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return \Yii::$app->user->identity->privileges == "0";
+                        }
                     ],
                 ],
             ],
@@ -38,6 +41,11 @@ class MasterController extends Controller {
             'router-create' => 'app\actions\master\RouterCreate',
             'router-update' => 'app\actions\master\RouterUpdate',
             'router-delete' => 'app\actions\master\RouterDelete',
+
+            'user' => 'app\actions\master\User',
+            'user-create' => 'app\actions\master\UserCreate',
+            'user-update' => 'app\actions\master\UserUpdate',
+            'user-delete' => 'app\actions\master\UserDelete',
         ];
     }
 

@@ -42,6 +42,31 @@
 	font-size: 11.5px;
 }
 
-.input-login, .btn-login{
+.input-login{
 	border-radius: 2px;
+	background: transparent !important;
+}
+
+.input-login::-webkit-input-placeholder {
+   color: #fff;
+}
+
+.input-login:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+
+.input-login::-moz-placeholder {  /* Firefox 19+ */
+  color: #fff;  
+}
+
+.input-login:-ms-input-placeholder {  
+   color: #fff; 
+}
+
+.btn-login{
+	border-radius: 2px;
+}
+
+.panel-tranparent{
+	background: transparent !important;
 }

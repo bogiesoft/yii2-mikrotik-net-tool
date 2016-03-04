@@ -51,7 +51,13 @@ class SiteController extends Controller {
 
     public function actionLogin()
     {
+        $this->layout = 'login';
+
         $model = new LoginForm;
+
+        if($model->load(\Yii::$app->request->post()) && $model->login()){
+            return $this->goHome();
+        }
 
         return $this->render('login', ['model' => $model]);
     }
@@ -390,6 +396,11 @@ class SiteController extends Controller {
                 }
             }
         }
+    }
+
+    public function actionGeneratePassword($password)
+    {
+        echo \Yii::$app->getSecurity()->generatePasswordHash($password);
     }
 
 }
