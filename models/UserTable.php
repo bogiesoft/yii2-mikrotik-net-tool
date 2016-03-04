@@ -4,7 +4,7 @@ namespace app\models;
 use yii\db\ActiveRecord;
 use yii\web\IndentityInterface;
 
-class UserTable extend ActiveRecord implements IndentityInterface {
+class UserTable extends ActiveRecord implements IndentityInterface {
 
 	public static function tableName()
 	{
