@@ -5,6 +5,8 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
+
+use app\models\LoginForm;
 use app\models\RouterTable;
 use app\models\ActionForm;
 use PEAR2\Net\RouterOS as Mikrotik;
@@ -49,7 +51,9 @@ class SiteController extends Controller {
 
     public function actionLogin()
     {
-        
+        $model = new LoginForm;
+
+        return $this->render('login', ['model' => $model]);
     }
 
     public function actionLogout() {
