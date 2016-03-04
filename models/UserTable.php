@@ -41,5 +41,5 @@ class UserTable extends ActiveRecord implements IndentityInterface {
 	{
 		return $this->authKey === $authKey;
 	}
-}
+	
 }
