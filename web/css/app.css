@@ -1,0 +1,47 @@
+.jumbotron{
+	padding: 25px;
+}
+
+#result{
+	margin-top: 30px;
+}
+
+.table-borderless thead tr td {
+	font-weight: bold;
+}
+
+.table-borderless tbody tr td, table-borderless thead tr td {
+    border: none;
+}
+
+
+.ct-series-b .ct-line {
+
+  stroke: blue;
+  stroke-width: 4px;
+
+}
+
+.ct-series-b .ct-point {
+  stroke: blue;
+}
+
+.ct-series-b .ct-area {
+	fill:blue;
+}
+
+#bt-desc{
+	margin-bottom: 20px;
+}
+
+.bt-li-desc{
+	margin-left: 20px;
+}
+
+.list-inline{
+	font-size: 11.5px;
+}
+
+.input-login, .btn-login{
+	border-radius: 2px;
+}
