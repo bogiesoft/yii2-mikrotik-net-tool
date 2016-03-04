@@ -11,6 +11,7 @@ class m160301_032421_user extends Migration {
             'password' => $this->string(300),
             'email' => $this->string(200),
             'authKey' => $this->string(300),
+            'access_token' => $this->string(300),
             'privileges' => $this->boolean(),
         ]);
     }
