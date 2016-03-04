@@ -398,9 +398,4 @@ class SiteController extends Controller {
         }
     }
 
-    public function actionGeneratePassword($password)
-    {
-        echo \Yii::$app->getSecurity()->generatePasswordHash($password);
-    }
-
 }
