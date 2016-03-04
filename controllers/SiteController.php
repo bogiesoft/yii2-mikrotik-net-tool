@@ -170,7 +170,7 @@ class SiteController extends Controller {
 
                 $bt_username = $model->bt_username != null ? " user=" . $model->bt_username : '';
                 $bt_password = $model->bt_password != null ? " password=" . $model->bt_password : '';
-                $bt_duration = $model->bt_duration;
+                $bt_duration = $model->bt_duration != null ? $model->bt_duration : 10;
 
                 // 1s for connecting
                 $bwRequest = new Mikrotik\Request('/tool bandwidth-test address=' . $model->host . ' duration=' . $bt_duration . ' protocol=' . $model->bt_protocol . ' direction=' . $model->bt_direction . $bt_username . $bt_password);
@@ -194,7 +194,7 @@ class SiteController extends Controller {
                                 die('<pre>' . $responses->getProperty('status') . '</pre>');
                             } else {
                                 //1s for connecting
-                                if ($extract_response->getProperty('duration') != '0s' && $extract_response->getProperty('duration') != $bt_duration - 1 . 's') {
+                                if ($extract_response->getProperty('duration') != '0s') {
                                     $response_labels[] = $extract_response->getProperty('duration');
                                     if ($model->bt_direction == "transmit") {
                                         if ($extract_response->getProperty('duration') == $bt_duration . 's') {
