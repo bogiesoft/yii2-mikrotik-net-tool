@@ -20,7 +20,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => ['master/login'],
+            'loginUrl' => ['site/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -33,6 +33,7 @@ $config = [
             'useFileTransport' => true,
         ],
         //prety url
+        /**
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             // Disable index.php
@@ -45,6 +46,7 @@ $config = [
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ],
+        **/
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

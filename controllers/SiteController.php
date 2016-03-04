@@ -40,6 +40,11 @@ class SiteController extends Controller {
         return $this->render('index', ['model' => $model]);
     }
 
+    public function actionLogin()
+    {
+        
+    }
+
     public function actionLogout() {
         \Yii::$app->user->logout();
 
