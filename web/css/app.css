@@ -45,6 +45,7 @@
 .input-login{
 	border-radius: 2px;
 	background: transparent !important;
+	color: #fff; 
 }
 
 .input-login::-webkit-input-placeholder {
