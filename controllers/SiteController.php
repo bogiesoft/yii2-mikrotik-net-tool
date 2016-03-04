@@ -73,7 +73,7 @@ class SiteController extends Controller {
         $model = new ActionForm();
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
 
             $stats = [];
 
