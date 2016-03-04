@@ -26,7 +26,6 @@ class MasterController extends Controller {
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
                     'router-delete' => ['post'],
                 ],
             ],
@@ -35,18 +34,11 @@ class MasterController extends Controller {
 
     public function actions() {
         return [
-            'login' => 'app\actions\master\Login',
             'router' => 'app\actions\master\Router',
             'router-create' => 'app\actions\master\RouterCreate',
             'router-update' => 'app\actions\master\RouterUpdate',
             'router-delete' => 'app\actions\master\RouterDelete',
         ];
-    }
-
-    public function actionLogout() {
-        \Yii::$app->user->logout();
-
-        return $this->goHome();
     }
 
 }

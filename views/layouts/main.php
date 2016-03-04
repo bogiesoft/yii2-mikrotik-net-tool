@@ -41,7 +41,7 @@ AppAsset::register($this);
                         !Yii::$app->user->isGuest ?
                                 [
                             'label' => 'Logout',
-                            'url' => ['/master/logout'],
+                            'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']
                                 ] : '',
                     ],
