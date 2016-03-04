@@ -1,4 +1,4 @@
-yii2-mikrotik
+yii2-mikrotik-net-tool
 ================================
 
 Yii 2 Basic Application Template with net_routeros package for mikrotik API web.
@@ -35,36 +35,7 @@ INSTALLATION
 
 ### Install from github repo
 
-git clone https://github.com/arydeoblo/yii2-mikrotik.git.
-
-BASIC EXAMPLE USAGE
--------------------
-in controller :
-
-
-```
-<?php
-
-namespace app\controllers;
-
-use yii\web\Controller;
-
-use PEAR2\Net\RouterOS as Mikrotik;
-
-class ServerController extends Controller{
-      public function actionIndex(){
-            $host   = 'your Mikrotik IP or Hostname';
-            $user   = 'your Mikrotik User';
-            $pass   = 'your Mikrotik Pass';
-            $connect = new Mikrotik\Client($host,$user,$pass);
-            if($connect){
-                  //your code 
-            }else{
-                  throw new \yii\web\HttpException(400, "Error connecting to router OS");
-            }
-      }
-}
-```
+git clone https://github.com/arydeoblo/yii2-mikrotik-net-tool.git.
 
 DOCUMENTATION 
 ---------------
