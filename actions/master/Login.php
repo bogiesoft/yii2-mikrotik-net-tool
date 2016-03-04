@@ -1,27 +1,27 @@
 <?php
+
 namespace app\actions\master;
 
 use yii\base\Action;
-
 use app\models\LoginForm;
 
 class Login extends Action {
-	public function run()
-	{
 
-		if(!\Yii::$app->user->isGuest){
-			return $this->controller->redirect(['router']);
-		}else{
-			$this->controller->layout = 'login';
+    public function run() {
 
-			$model = new LoginForm();
+        if (!\Yii::$app->user->isGuest) {
+            return $this->controller->redirect(['router']);
+        } else {
+            $this->controller->layout = 'login';
 
-			if ($model->load(\Yii::$app->request->post()) && $model->login()) {
-            	return $this->controller->redirect(['router']);
-        	}
+            $model = new LoginForm();
 
-			return $this->controller->render('login',['model' => $model]);
-		}
-		
-	}
+            if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+                return $this->controller->redirect(['router']);
+            }
+
+            return $this->controller->render('login', ['model' => $model]);
+        }
+    }
+
 }

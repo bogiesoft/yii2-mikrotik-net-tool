@@ -2,11 +2,10 @@
 
 use yii\db\Migration;
 
-class m160301_032421_user extends Migration
-{
-    public function up()
-    {
-        $this->createTable('user',[
+class m160301_032421_user extends Migration {
+
+    public function up() {
+        $this->createTable('user', [
             'id' => $this->primarykey(),
             'username' => $this->string(100),
             'password' => $this->string(300),
@@ -15,19 +14,18 @@ class m160301_032421_user extends Migration
         ]);
     }
 
-    public function down()
-    {
+    public function down() {
         $this->dropTable('user');
     }
 
     /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
+      // Use safeUp/safeDown to run migration code within a transaction
+      public function safeUp()
+      {
+      }
 
-    public function safeDown()
-    {
-    }
-    */
+      public function safeDown()
+      {
+      }
+     */
 }

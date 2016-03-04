@@ -1,6 +1,8 @@
 <?php
+
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+
 $this->title = 'Network Tools';
 ?>
 <div class="body-content">
@@ -21,25 +23,24 @@ $this->title = 'Network Tools';
 
 <!-- Modal -->
 <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div  class="text-center" style="margin-bottom: 10px;"><strong>Processing Request</strong></div>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-            <span class="sr-only">Loading</span>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div  class="text-center" style="margin-bottom: 10px;"><strong>Processing Request</strong></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                        <span class="sr-only">Loading</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
 
 
 
 <?php
-
 $JS = <<<JS
 
 var btWrap = $('#btWrap');
@@ -93,5 +94,4 @@ $('#runAction').on('beforeSubmit',function(e){
 JS;
 
 $this->registerJs($JS);
-
 ?>

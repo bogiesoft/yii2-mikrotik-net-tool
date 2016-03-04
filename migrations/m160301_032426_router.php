@@ -2,11 +2,10 @@
 
 use yii\db\Migration;
 
-class m160301_032426_router extends Migration
-{
-    public function up()
-    {
-        $this->createTable('router',[
+class m160301_032426_router extends Migration {
+
+    public function up() {
+        $this->createTable('router', [
             'id' => $this->primarykey(),
             'name' => $this->string(20),
             'host' => $this->string(15),
@@ -17,19 +16,18 @@ class m160301_032426_router extends Migration
         ]);
     }
 
-    public function down()
-    {
+    public function down() {
         $this->dropTable('router');
     }
 
     /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
+      // Use safeUp/safeDown to run migration code within a transaction
+      public function safeUp()
+      {
+      }
 
-    public function safeDown()
-    {
-    }
-    */
+      public function safeDown()
+      {
+      }
+     */
 }
