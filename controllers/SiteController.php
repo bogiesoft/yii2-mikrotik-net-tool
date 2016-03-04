@@ -1,14 +1,10 @@
 <?php
-
 namespace app\controllers;
 
-use Yii;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\base\ErrorException;
-use yii\web\HttpException;
-use yii\widgets\ActiveForm;
-use yii\web\Response;
+
 use app\models\RouterTable;
 use app\models\ActionForm;
 use PEAR2\Net\RouterOS as Mikrotik;
@@ -17,10 +13,21 @@ class SiteController extends Controller {
 
     public function behaviors() {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'execute','logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'execute','logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'execute' => ['post'],
+                    'logout' => ['post'],
                 ],
             ],
         ];
