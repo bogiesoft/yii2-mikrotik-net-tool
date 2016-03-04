@@ -2,9 +2,9 @@
 namespace app\models;
 
 use yii\db\ActiveRecord;
-use yii\web\IndentityInterface;
+use yii\web\IdentityInterface;
 
-class UserTable extends ActiveRecord implements IndentityInterface {
+class UserTable extends ActiveRecord implements IdentityInterface {
 
 	public static function tableName()
 	{
@@ -41,5 +41,5 @@ class UserTable extends ActiveRecord implements IndentityInterface {
 	{
 		return $this->authKey === $authKey;
 	}
-	
+
 }
