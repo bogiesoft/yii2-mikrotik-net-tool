@@ -16,7 +16,7 @@ class AjaxController extends Controller{
 	public function actionFetchInterface($host){
 		$model = RouterTable::findOne($host);
 
-                if($model){
+                if($model['rra_graph'] != ''){
                         $graphs = explode(',',$model['rra_graph']);
 
                         return $this->renderPartial('fetch-interface',['graphs' => $graphs]);
