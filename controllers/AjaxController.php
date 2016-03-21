@@ -16,10 +16,15 @@ class AjaxController extends Controller{
 	public function actionFetchInterface($host){
 		$model = RouterTable::findOne($host);
 
-		$graphs = explode(',',$model['rra_graph']);
+                if($model){
+                        $graphs = explode(',',$model['rra_graph']);
+
+                        return $this->renderPartial('fetch-interface',['graphs' => $graphs]);
+                }else{
+                        return false;
+                }
 
 
-		return $this->renderPartial('fetch-interface',['graphs' => $graphs]);
 	}
 
 	public function actionRenderGraph($graph,$time)
