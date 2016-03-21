@@ -8,7 +8,7 @@ use app\models\UserTable;
 class UserCreate extends Action {
 
     public function run() {
-        $baseModel = new UserTable();
+        $model = new UserTable();
         $model->scenario = 'create';
 
         if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
