@@ -205,6 +205,9 @@ class SiteController extends Controller {
 
                 $responses = $connect->sendSync($bwRequest);
 
+                //print_r($responses);
+
+                
                 if ($responses->getType() === Mikrotik\Response::TYPE_ERROR) {
                     echo '<pre>' . $responses->getProperty('message') . '</pre>';
                 } else {
@@ -222,10 +225,10 @@ class SiteController extends Controller {
                                 die('<pre>' . $responses->getProperty('status') . '</pre>');
                             } else {
                                 //1s for connecting
-                                if ($extract_response->getProperty('duration') != '0s') {
+                                if ($extract_response->getProperty('duration') !== '0s' && $extract_response->getProperty('duration') !== $bt_duration+1 . 's') {
                                     $response_labels[] = $extract_response->getProperty('duration');
                                     if ($model->bt_direction == "transmit") {
-                                        if ($extract_response->getProperty('duration') == $bt_duration . 's') {
+                                        if ($extract_response->getProperty('duration') === $bt_duration-1 . 's') {
                                             $tx_current = $extract_response->getProperty('tx-current');
                                             $tx_10_second_average = $extract_response->getProperty('tx-10-second-average');
                                             $tx_total_average = $extract_response->getProperty('tx-total-average');
@@ -233,7 +236,7 @@ class SiteController extends Controller {
 
                                         $response_series[] = \Yii::$app->tools->formatMbps($extract_response->getProperty('tx-current'));
                                     } elseif ($model->bt_direction == "receive") {
-                                        if ($extract_response->getProperty('duration') == $bt_duration . 's') {
+                                        if ($extract_response->getProperty('duration') === $bt_duration-1 . 's') {
                                             $rx_current = $extract_response->getProperty('rx-current');
                                             $rx_10_second_average = $extract_response->getProperty('rx-10-second-average');
                                             $rx_total_average = $extract_response->getProperty('rx-total-average');
@@ -241,7 +244,7 @@ class SiteController extends Controller {
 
                                         $response_series[] = \Yii::$app->tools->formatMbps($extract_response->getProperty('rx-current'));
                                     } else {
-                                        if ($extract_response->getProperty('duration') == $bt_duration . 's') {
+                                        if ($extract_response->getProperty('duration') === $bt_duration-1 . 's') {
 
                                             $tx_current = $extract_response->getProperty('tx-current');
                                             $tx_10_second_average = $extract_response->getProperty('tx-10-second-average');
@@ -265,7 +268,8 @@ class SiteController extends Controller {
                         $json_res_labels = json_encode($response_labels);
                         $json_res_series = json_encode($response_series);
 
-                        $bt_desc = "<div class\"bt-desc\">";
+                        $bt_desc = '<h3 class="text-center">Bandwidth Test Result</h3><hr>';
+                        $bt_desc .= "<div class\"bt-desc\">";
                         $bt_desc .= "<ul class=\"list-inline\">";
                         $bt_desc .= "<li><div style=\"width:10px;height:10px;background:blue;display:inline-block;\"></div></li>";
                         $bt_desc .= "<li><strong>Transmit</strong></li>";
@@ -316,7 +320,8 @@ class SiteController extends Controller {
                         $json_res_labels = json_encode($response_labels);
                         $json_res_series = json_encode($response_series);
 
-                        $bt_desc = "<div class\"bt-desc\">";
+                        $bt_desc = '<h3 class="text-center">Bandwidth Test Result</h3><hr>';
+                        $bt_desc .= "<div class\"bt-desc\">";
                         $bt_desc .= "<ul class=\"list-inline\">";
                         $bt_desc .= "<li><div style=\"width:10px;height:10px;background:red;display:inline-block;\"></div></li>";
                         $bt_desc .= "<li><strong>Receive</strong></li>";
@@ -352,7 +357,8 @@ class SiteController extends Controller {
                         $json_res_labels = json_encode($response_labels);
                         $json_res_series = json_encode([$response_series_rx, $response_series_tx]);
 
-                        $bt_desc = "<div class\"bt-desc-rx\">";
+                        $bt_desc = '<h3 class="text-center">Bandwidth Test Result</h3><hr>';
+                        $bt_desc .= "<div class\"bt-desc-rx\">";
                         $bt_desc .= "<ul class=\"list-inline\">";
                         $bt_desc .= "<li><div style=\"width:10px;height:10px;background:red;display:inline-block;\"></div></li>";
                         $bt_desc .= "<li><strong>Receive</strong></li>";

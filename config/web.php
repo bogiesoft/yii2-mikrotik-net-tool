@@ -56,7 +56,16 @@ $config = [
                 ],
             ],
         ],
+
         'db' => require(__DIR__ . '/db.php'),
+        
+        'dbCacti' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=103.11.222.221;dbname=cacti',
+            'username' => 'apicacti',
+            'password' => 'apicactidtn',
+            'charset' => 'utf8',
+        ],
     ],
     'params' => $params,
 ];

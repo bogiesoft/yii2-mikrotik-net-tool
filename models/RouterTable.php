@@ -15,7 +15,14 @@ class RouterTable extends ActiveRecord {
     public function rules() {
         return [
             [['host', 'port', 'user', 'name', 'src_address'], 'required'],
-            [['pass'], 'safe'],
+            [['pass','host_graph'], 'safe'],
+            ['rra_graph','required','when' => function($model){
+                return $model->host_graph != '';
+            },
+            'whenClient' => "function (attribute, value) {
+                    return $('#routertable-host_graph').val() != '';
+            }"
+            ]
         ];
     }
 

@@ -18,6 +18,11 @@ $this->title = 'Network Tools';
             <div id="bt-test-desc"></div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 graph-result">
+
+        </div>
+    </div>
 
 </div>
 
@@ -41,11 +46,13 @@ $this->title = 'Network Tools';
 
 
 <?php
+$url_get = \yii\helpers\Url::to(['ajax/fetch-interface']);
 $JS = <<<JS
 
 var btWrap = $('#btWrap');
 var actionVal = $('input[name="ActionForm[action]"]');
 var btDirection = $('input[name="ActionForm[bt_direction]"]:checked');
+var hostGraph = $('input[name="ActionForm[router]"][type="radio"]');
 
 btWrap.hide();
 
@@ -60,6 +67,27 @@ actionVal.click(function(){
         btWrap.hide();
     }
 });
+
+hostGraph.change(function(){
+    var hv = $(this).val();
+
+    if(hv!=''){
+        $.ajax({
+            method : 'GET',
+            url : '{$url_get}',
+            data : { host: hv},
+            success : function(data){
+                $('.graph-result').html(data);
+            },
+            error : function(data){
+                $('.graph-result').html('<pre>Error processing graph request.</pre>');
+            },
+
+        })
+    }
+
+});
+
 
 
 $('#runAction').on('beforeSubmit',function(e){
