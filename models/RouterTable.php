@@ -16,7 +16,6 @@ class RouterTable extends ActiveRecord {
         return [
             [['host', 'port', 'user', 'name', 'src_address'], 'required'],
             [['pass','rra_graph'], 'safe'],
-            ]
         ];
     }
 
