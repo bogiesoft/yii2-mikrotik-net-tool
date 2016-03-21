@@ -4,6 +4,7 @@ namespace app\actions\master;
 
 use yii\base\Action;
 use app\models\RouterTable;
+use app\models\cacti\HostTable;
 
 class RouterUpdate extends Action {
 
@@ -11,6 +12,8 @@ class RouterUpdate extends Action {
         $baseModel = new RouterTable();
 
         $model = $baseModel->getData($id);
+
+        $getHostGraph = HostTable::fetchHost();
 
         if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
             if ($model->update()) {
@@ -22,7 +25,7 @@ class RouterUpdate extends Action {
             }
         }
 
-        return $this->controller->render('router-update', ['model' => $model]);
+        return $this->controller->render('router-update', ['model' => $model,'getHostGraph' => $getHostGraph]);
     }
 
 }
