@@ -38,7 +38,6 @@ use yii\helpers\Url;
             'user',
             'pass',
             'src_address',
-            'host_graph',
             'rra_graph',
             [
                 'header' => 'Actions',
