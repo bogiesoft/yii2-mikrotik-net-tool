@@ -7,7 +7,7 @@ use app\models\UserTable;
 
 class UserCreate extends Action {
 
-    public function run($id) {
+    public function run() {
         $baseModel = new UserTable();
         $model->scenario = 'create';
 
