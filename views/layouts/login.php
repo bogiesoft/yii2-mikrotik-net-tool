@@ -22,14 +22,14 @@ AppAsset::register($this);
         <?php $this->head() ?>
         <style type="text/css">
             body{
-                 background: url("img/login-bg.png") no-repeat center center fixed; 
+                 background: url("<?= \Yii::getAlias('@web'); ?>/img/login-bg.png") no-repeat center center fixed; 
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;
             }
             #login-wrap{
-                margin-top: 70px;
+                margin-top: 90px;
             }
         </style>
     </head>
