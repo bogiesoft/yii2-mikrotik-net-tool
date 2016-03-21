@@ -13,12 +13,6 @@ class m160301_032421_user extends Migration {
             'access_token' => $this->string(300),
             'privileges' => $this->boolean(),
         ]);
-
-        $this->insert('user',[
-            'username' => 'admin',
-            'password' => \Yii::$app->getSecurity()->generatePasswordHash('admin'),
-            'privileges' => 0,
-        ]);
     }
 
     public function down() {

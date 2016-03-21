@@ -4,14 +4,11 @@ namespace app\actions\master;
 
 use yii\base\Action;
 use app\models\RouterTable;
-use app\models\cacti\HostTable;
 
 class RouterCreate extends Action {
 
     public function run() {
         $model = new RouterTable();
-
-        $getHostGraph = HostTable::fetchHost();
 
         if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
             if ($model->save()) {
@@ -20,7 +17,7 @@ class RouterCreate extends Action {
             }
         }
 
-        return $this->controller->render('router-create', ['model' => $model ,'getHostGraph' => $getHostGraph]);
+        return $this->controller->render('router-create', ['model' => $model]);
     }
 
 }

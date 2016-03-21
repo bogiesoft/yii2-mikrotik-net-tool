@@ -13,7 +13,6 @@ class m160301_032426_router extends Migration {
             'user' => $this->string(300),
             'pass' => $this->string(300),
             'src_address' => $this->string(20),
-            'host_graph' => $this->string(300),
             'rra_graph' => $this->string(300),
         ]);
     }

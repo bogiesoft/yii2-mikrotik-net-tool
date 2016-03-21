@@ -22,9 +22,6 @@ use yii\helpers\Html;
             <div class="col-md-6"><?= $form->field($model, 'src_address') ?></div>
         </div>
         <div class="row">
-            <div class="col-md-6"><?= $form->field($model, 'host_graph',['inputOptions' => ['class' => 'form-control']])->dropDownList($getHostGraph,['prompt' => '**select host graph**']) ?></div>
-        </div>
-        <div class="row">
             <div class="col-md-12"><?= $form->field($model, 'rra_graph',['inputOptions' =>['class' => 'form-control','placeholder' => 'If you add more than one rra, please separate with comas']])->label('RRA Graph')?></div>
         </div>
         <div class="text-center">
